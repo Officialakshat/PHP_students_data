@@ -1,8 +1,8 @@
-<!-- Example HTML for student form -->
 <form class="student-form" (ngSubmit)="onSubmit()" #studentForm="ngForm">
   <h2>Student Registration</h2>
+
   <label for="name">Name:</label>
-  <input type="text" id="name"  name="name" [(ngModel)]="student.name" placeholder="Enter your name" required>
+  <input type="text" id="name" name="name" [(ngModel)]="student.name" placeholder="Enter your name" required>
 
   <label for="email">Email:</label>
   <input type="email" id="email" name="email" [(ngModel)]="student.email" placeholder="Enter your email" required>
@@ -13,8 +13,8 @@
   <label for="course">Course:</label>
   <input type="text" id="course" name="course" [(ngModel)]="student.course" placeholder="Enter your course" required>
 
-  <button type="submit" [disabled]="!studentForm.form.valid">Register</button>
+  <button type="submit" >Register</button>
 </form>
 
+<!-- ✅ Message display -->
 <div *ngIf="message" class="message">{{ message }}</div>
-

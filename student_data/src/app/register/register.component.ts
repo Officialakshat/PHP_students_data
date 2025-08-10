@@ -4,6 +4,7 @@ import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-register',
+  standalone: true,
   imports: [FormsModule, NgIf],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
@@ -18,12 +19,17 @@ export class RegisterComponent {
   message: string = '';
 
   onSubmit() {
-    // Example: Simple check for demonstration
-    if (this.student.name && this.student.email && this.student.age && this.student.course) {
-      this.message = 'Login Successful!';
+    if (
+      !this.student.name ||
+      !this.student.email ||
+      !this.student.course ||
+      this.student.age === null ||
+      this.student.age === '' ||
+      this.student.age <= 0
+    ) {
+      this.message = 'Please fill all fields correctly.';
     } else {
-      this.message = 'Login Unsuccessful. Please fill all fields.';
+      this.message = 'Registration Successful!';
     }
   }
-  
 }
